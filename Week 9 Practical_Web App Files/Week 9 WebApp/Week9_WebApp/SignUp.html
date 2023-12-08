@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en" ng-app="Dashboard">
+  <head>
+    <meta charset="UTF-8">
+
+    <title>Sign-up</title>
+
+      <link rel="stylesheet" type="text/css" href="CSS/bootstrap.min.css">
+      <script type="text/javascript" src="JS/bootstrap.js"></script>
+      <script type="text/javascript" src="JS/bootstrap.bundle.min.js"></script>
+      <script type="text/javascript" src="JS/jquery-3.6.0.min.js"></script>
+
+      <script type="text/javascript" src="JS/app.js"></script>
+
+  </head>
+  
+  <body>
+    <div  class="container">
+
+        <!--Header-->
+        <div class="row align-items-start">
+            <div class="col-2"  ></div>
+
+            <div class="col-8"style="text-align: center;">
+              <h3>Post your Portrait<br> Sign-up&#128233;</h3>
+              
+            </div>
+
+            <div class="col-2"  ></div>
+        </div>
+
+        <!--New Asset Box-->
+        <div class="row align-items-start">
+            <div class="col-2"  ></div>
+
+            <div class="col-8" style="text-align: left;border-bottom:1px solid #222222;">
+              
+
+              <form style="font-size: 10pt;" id="newAssetForm">
+                <div class="mb-3">
+                  <label for="FirstName:" class="form-label">FirstName</label>
+                  <input type="text" class="form-control" id="FirstName">
+                </div>
+
+                <div class="mb-3">
+                  <label for="SurName:" class="form-label">SurName</label>
+                  <input type="text" class="form-control" id="SurName">
+                </div>
+
+
+                <div class="mb-3">
+                  <label for="Email" class="form-label">Email</label>
+                  <input type="text" class="form-control" id="Email">
+                </div>
+
+                <div class="mb-3">
+                  <label for="UserName" class="form-label">UserName</label>
+                  <input type="text" class="form-control" id="UserName">
+                </div>
+
+                <div class="mb-3">
+                  <label for="Password" class="form-label">Password</label>
+                  <input type="text" class="form-control" id="Password">
+                </div>
+
+            
+                <button type="button" id="Submit" class="btn btn-primary">Submit</button>
+                <button type="button" id="Signup" class="btn btn-primary">Sign-up</button> <br/><br/>
+                
+              </form>
+            </div>
+
+            <div class="col-2"  ></div>
+        </div>
+
+        <!-- view Asset Area-->
+        <div class="row align-items-start">
+            <div class="col-2"  ></div>
+
+            <div class="col-8" style="text-align: left;" >
+              <div style="padding:5px;">
+                <button  id = "retAssets" type="button" class="btn btn-primary">View Information</button>
+              </div>
+
+              <div id="AssetList">
+
+                <h4>Please click the view Assets button if you wish to view Information on the system.</h4>
+
+              </div>
+            </div>
+            
+            <div class="col-2"  ></div>
+        </div>
+
+    </div>
+    
+  </body>
+</html>

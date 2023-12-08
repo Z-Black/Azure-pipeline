@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en" ng-app="Dashboard">
+  <head>
+
+    <script type="text/javascript" src="https://cdn.cognitive.microsoft.com/libs/microsofttranslator/AjaxRequest.js"></script>
+
+
+    <meta charset="UTF-8">
+
+    <title>ImageShare</title>
+
+      <link rel="stylesheet" type="text/css" href="CSS/bootstrap.min.css">
+      <script type="text/javascript" src="JS/bootstrap.js"></script>
+      <script type="text/javascript" src="JS/bootstrap.bundle.min.js"></script>
+      <script type="text/javascript" src="JS/jquery-3.6.0.min.js"></script>
+
+      <script type="text/javascript" src="JS/app.js"></script>
+
+  </head>
+  
+  <body>
+
+    <div  class="container">
+
+        <!--Header-->
+        <div class="row align-items-start">
+            <div class="col-2"  ></div>
+
+            <div class="col-8" style="text-align: center;">
+              <h3>Post your Portrait&#128396;</h3>
+              <span style='font-size:100px;'>&#128444;</span>
+            </div>
+
+            <div class="col-2"  >
+          </div>
+
+        <!--New Asset Box-->
+        <div class="row align-items-start">
+            <div class="col-2"  ></div>
+
+            <div class="col-8" style="text-align: left;border-bottom:1px solid #222222;">
+              <p>Add Painting</p>
+
+              <form style="font-size: 10pt;" id="newAssetForm">
+                <div class="mb-3">
+                  <label for="FileName" class="form-label">File Name</label>
+                  <input type="text" class="form-control" id="FileName">
+                </div>
+
+                <div class="mb-3">
+                  <label for="userID" class="form-label">User Id</label>
+                  <input type="string" class="form-control" id="userID">
+                </div>
+
+                <div class="mb-3">
+                  <label for="userName" class="form-label">User Name</label>
+                  <input type="text" class="form-control" id="userName">
+                </div>
+
+                <div class="mb-3">
+                  <label for="UpFile" class="form-label">File to Upload</label>
+                  <input type="file" class="form-control" id="UpFile">
+                </div>
+            
+                <button type="button" id="subNewForm" class="btn btn-primary">Submit</button> <br/><br/>
+                
+                <h3>Translate Text</h3>
+
+                <h4>Enter Text to Translate:</h4>
+                <textarea id="inputText" rows="4" cols="50"></textarea>
+                              
+                <button onclick="translateText()">Translate</button>
+
+                <h3>Translated Text:</h3>
+                <div id="outputText"></div>
+
+                <script>
+                  // Replace 'YOUR_SUBSCRIPTION_KEY' and 'YOUR_ENDPOINT' with your actual Azure Translator credentials
+                  const subscriptionKey = 'b9f5ae6f6cea48eea70fdbcc8f197aff';
+                  const endpoint = "https://api.cognitive.microsofttranslator.com/";
+
+                  function translateText() {
+                    const inputText = document.getElementById('inputText').value;
+
+                    fetch(`${endpoint}/translate?api-version=3.0&to=en`, {
+                      method: 'POST',
+                      headers: {
+                        'Ocp-Apim-Subscription-Key': subscriptionKey,
+                        'Content-type': 'application/json',
+                        'X-ClientTraceId': generateGuid(),
+                      },
+                      body: JSON.stringify([{ 'text': inputText }]),
+                    })
+                      .then(response => response.json())
+                      .then(data => {
+                        const translatedText = data[0].translations[0].text;
+                        document.getElementById('outputText').innerText = translatedText;
+                      })
+                      .catch(error => console.error('Error translating text:', error));
+                  }
+
+                  function generateGuid() {
+                    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+                      const r = Math.random() * 16 | 0,
+                        v = c === 'x' ? r : (r & 0x3 | 0x8);
+                      return v.toString(16);
+                    });
+                  }
+                </script>  
+
+
+              </form>
+            </div>
+
+            <div class="col-2"  ></div>
+        </div>
+
+        <!-- view Asset Area-->
+        <div class="row align-items-start">
+            <div class="col-2"  ></div>
+
+            <div class="col-8" style="text-align: left;" >
+              <div style="padding:5px;">
+                <button  id = "retImages" type="button" class="btn btn-primary">View Images</button>
+              </div>
+
+              <!-- Logout button -->
+          <button id="logoutBtn" type="button" class="btn btn-danger">Logout</button>
+
+              <div id="ImageList">
+                
+                  
+                <h4>Please click the view Images button if you wish to view images on the system.</h4>
+                              
+                
+
+              </body>
+              </html>
+
+
+
+                            </div>
+                          </div>
+
+                          <div class="col-2"  ></div>
+                      </div>
+
+                  </div>
+                
+                </body>
+              </html>
